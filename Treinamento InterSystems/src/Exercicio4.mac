@@ -1,0 +1,14 @@
+ROUTINE Exercicio4
+INICIO 
+    write #,"---- Cadastro de Aluno ----",!
+    read !,"Digite o número da matrícula: ",matricula
+    read !,"Digite o nome completo: ",nome
+    read !,"Digite o telefone: ",telefone
+    read !,"Insira o data de nascimento: ",dataNascimento
+    read !,"Escolha o sexo: ",sexo
+
+    write !,"Matrícula: "_matricula
+    write !,"Nome completo: "_nome
+    write !,"Telefone: "_telefone
+    write !,"Data de nascimento: "_dataNascimento
+    write !,"Sexo: "_sexo

@@ -1,0 +1,9 @@
+ROUTINE Exercicio7
+INICIO
+    read !,"Insira um nome: ",nome
+
+    set qtdChar = $Length($Translate(nome," ",""))
+    set nomeFormat = $Translate(nome," ","|")
+
+    write !,qtdChar_" caracteres (sem espaço)"
+    write !,nomeFormat

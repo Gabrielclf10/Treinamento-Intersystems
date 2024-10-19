@@ -1,0 +1,19 @@
+ROUTINE HelloWorld
+HelloWorld
+	write !,#,"Hello ""World!"" Aula 01!"
+	write !,"Hoje é "_$ZDate($Horolog,2),!
+	set a = $Random(10)
+	set b = ""
+	do{
+		write !
+		read "Chute um número de 0 a 9: ",b
+	}while ((b = "") || '(b?1N) || (b > 9))
+
+	if a = b { write !,"Bingo!!",!}
+	else {
+		write !,"Erroouuu..  era: "_a,!
+		hang 2
+		do HelloWorld
+	}
+	
+	quit

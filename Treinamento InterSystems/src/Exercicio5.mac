@@ -1,0 +1,39 @@
+ROUTINE Exercicio5
+INICIO 
+    write #,"---- Cadastro de Aluno ----",!
+
+    for i=$Increment(^tAluno):1{
+        read !,"Digite o número da matrícula: ",matricula
+        read !,"Digite o nome completo: ",nome
+        read !,"Digite o telefone: ",telefone
+        read !,"Insira o data de nascimento: ",dataNascimento
+        read !,"Escolha o sexo: ",sexo
+
+        set ^tAluno(i,"matricula") = matricula
+        set ^tAluno(i,"nome") = nome
+        set ^tAluno(i,"telefone") = telefone
+        set ^tAluno(i,"dataNascimento") = dataNascimento
+        set ^tAluno(i,"sexo") = sexo
+        
+        set x = ""
+        do{
+            read !,"Deseja cadastrar mais um aluno? (S/N) ",x
+        }while x = ""
+        if x = "N" quit
+    }
+
+    set i = ""
+    for {
+        set i = $order(^tAluno(i)) quit:i=""
+        Write !,"--------",!
+        write "Matricula: "_^tAluno(i,"matricula"),!
+        write "Nome: "_^tAluno(i,"nome"),!
+        write "Telefone: "_^tAluno(i,"telefone"),!
+        write "Data de Nascimento: "_^tAluno(i,"dataNascimento"),!
+        write "Sexo: "_^tAluno(i,"sexo"),!
+    }
+
+    quit
+
+
+ 

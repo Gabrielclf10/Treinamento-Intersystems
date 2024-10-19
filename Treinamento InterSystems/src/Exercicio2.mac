@@ -1,0 +1,17 @@
+ROUTINE Exercicio2
+    
+    read !,"Digite o valor de inicio: ",x
+    read !,"Digite o valor de final: ",y
+    set count = ""
+    
+    write !
+    for i=x:1:y{
+        if i # 2 '= 0 {
+            write i_" é impar",!
+
+            if i # 3 = 0{
+                do $Increment(count)
+            }
+        }
+    }
+    write !,count_" números desse intervalo são multiplos de 3",!

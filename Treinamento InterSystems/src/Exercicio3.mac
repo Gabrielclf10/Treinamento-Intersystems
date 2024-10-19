@@ -1,0 +1,21 @@
+ROUTINE Exercicio3
+INICIO
+    read !,"Digite o valor de num1: ",num1
+    read !,"Digite o valor de num2: ",num2
+    read !,"Digite o valor de num3: ",num3
+    set count1 = 0
+    set count2 = 0
+    set soma = 0
+
+    for i = num1:1:num2{
+        if i # 11 = 5 {do $i(count1)}
+        set soma = soma + i
+    }
+
+    for i = num2:1:num3{
+        if i # 3 = 0 {do $i(count2)}
+    }
+
+    write !, count1_" números entre "_num1_" e "_num2_" tem como resto 5"
+    write !, count2_" números entre "_num2_" e "_num3_" são multiplos de 3"
+    write !, "Soma de todos os números entre "_num1_" e "_num2_": "_soma

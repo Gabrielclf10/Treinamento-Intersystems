@@ -1,0 +1,11 @@
+ROUTINE Exercicio6
+INICIO
+    read !,"Digite uma data em DD/MM/AAAA: ",data
+
+    set horolog = $ZDateH(data,4)
+    set dataIsla = $ZDate(horolog,18)
+    set mesIsla = $Piece(dataIsla," ",2)
+
+    write !,"$Horolog: "_horolog
+    write !,"Formato islâmico: "_dataIsla
+    write !,"Nome do mês: "_mesIsla
