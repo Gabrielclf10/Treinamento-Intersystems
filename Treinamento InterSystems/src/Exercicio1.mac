@@ -1,5 +1,5 @@
 ROUTINE Exercicio1
-    // Verifica pares num intervalo
+    // Verifica pares num intervalo.
     read !,"Digite o valor de inicio: ",x
     read !,"Digite o valor de final: ",y
     set count = ""
