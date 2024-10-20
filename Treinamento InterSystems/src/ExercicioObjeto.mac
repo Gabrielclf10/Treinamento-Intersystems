@@ -42,4 +42,9 @@ ROUTINE ExercicioObjeto
 
     set status = turma.%Save()
 
+    set statusTurma = turma.VerificaStatus(curso.Nome)
+    write !,"Status da turma: ",statusTurma,!
+
+    do ##class(TreinamentoIS.Data.Turma).ImprimeTurma("Curso IRIS")
+
     quit status
