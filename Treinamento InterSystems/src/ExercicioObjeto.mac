@@ -1,0 +1,45 @@
+ROUTINE ExercicioObjeto
+    // Limpar globais de dados
+    kill ^TreinamentoIS.Data.AlunoD, ^TreinamentoIS.Data.InstrutorD, ^TreinamentoIS.Data.TurmaD,^TreinamentoIS.Data.CursoD
+    
+    read !,"Quantos alunos vamos criar?: ",X
+    
+    // Criar um instrutor aleatório
+    set instrutor = ##class(TreinamentoIS.Data.Instrutor).%New()
+    set instrutor.Nome = "Instrutor"_$Random(100)
+    set instrutor.Matricula = "INST"_$Random(100000)
+    set status = instrutor.%Save()
+
+    // Criar um curso aleatório
+    set curso = ##class(TreinamentoIS.Data.Curso).%New()
+    set curso.Nome = "Curso IRIS"
+    set curso.Preco = +(($Random(1000)+50)_"."_$Random(99))
+    set curso.Duracao = $Random(128)
+    set status = curso.%Save()
+
+    // Criar X alunos aleatórios
+    for i=1:1:X {
+        set aluno = ##class(TreinamentoIS.Data.Aluno).%New()
+        set aluno.Nome = "Aluno-"_i
+        set aluno.Matricula = "ALU"_($Random(1000000)+i)
+        set aluno.Idade = 18 + $Random(40)
+        set status = aluno.%Save()
+    }
+
+    // Criar turma
+    set turma = ##class(TreinamentoIS.Data.Turma).%New()
+    set turma.Curso = curso
+    set turma.Instrutor = instrutor
+    set turma.Status = "Incompleta"
+    
+    // Adiciona alunos à lista de alunos da turma
+    set alunoId = ""
+    for {
+        set alunoId = $Order(^TreinamentoIS.Data.AlunoD(alunoId)) quit:alunoId=""
+        set alunoObj = ##class(TreinamentoIS.Data.Aluno).%OpenId(alunoId)
+        do turma.Alunos.Insert(alunoObj)
+    }
+
+    set status = turma.%Save()
+
+    quit status

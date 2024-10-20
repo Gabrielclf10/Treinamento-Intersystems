@@ -3,7 +3,7 @@ Class TreinamentoIS.Data.Instrutor Extends (%Persistent, %XML.Adaptor)
 
 Property Nome As %String(MAXLEN = 300) [ SqlColumnNumber = 2 ];
 
-Property Matricula As %String [ SqlColumnNumber = 3 ];
+Property Matricula As %String(MAXLEN = 50) [ SqlColumnNumber = 3 ];
 
 Storage Default
 {
